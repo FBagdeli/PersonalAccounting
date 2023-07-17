@@ -1,7 +1,10 @@
 package com.farshadchalenges.personalaccounting
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.farshadchalenges.personalaccounting.databinding.ActivityMainBinding
 
@@ -13,14 +16,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var historyList = binding.listViewHistory
-        var textViewBalance = binding.textViewCurrentBalance
+        var listViewBalances = binding.listViewHistory
+        val cardViewHistory = binding.cardViewHistory
 
+        cardViewHistory.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, BalanceHistory::class.java)
+            startActivity(intent)
+        })
 
-        val items = mutableListOf<Any>(1,2,3,4,5)
+        val transections = mutableListOf<String>(
+            "far",
+            "test"
+        )
 
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, transections)
 
-        var butttonAdd = binding.buttonAdd
+        listViewBalances.adapter = adapter
+
+        val butttonAdd = binding.buttonAdd
+
+        butttonAdd.setOnClickListener(View.OnClickListener {
+//            transections.add()
+        })
 
     }
 }

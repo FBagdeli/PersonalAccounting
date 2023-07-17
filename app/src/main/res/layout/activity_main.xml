@@ -86,10 +86,17 @@
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_view_budget">
 
-        <ListView
-            android:id="@+id/list_view_history"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+            
+            <ListView
+                android:id="@+id/list_view_history"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </ScrollView>
+
 
     </androidx.cardview.widget.CardView>
 
